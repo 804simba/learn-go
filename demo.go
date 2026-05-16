@@ -62,8 +62,25 @@ func main() {
 	fmt.Println(dictionary)
 	value, ok := dictionary["class"]
 	fmt.Println(value, ok)
+
+	fmt.Println(add(10, 20))
+
+	result := concatenate("trump")
+	concat1 := result("et")
+	concat2 := result("al")
+	fmt.Println(concat1, concat2)
 }
 
 func test(array [3][2]int) {
 	array[0] = [2]int{100, 200}
+}
+
+func add(numberOne int, numberTwo int) int {
+	return numberOne + numberTwo
+}
+
+func concatenate(str string) func(string) string {
+	return func(str2 string) string {
+		return str + str2
+	}
 }
