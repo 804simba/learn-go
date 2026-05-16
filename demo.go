@@ -34,6 +34,34 @@ func main() {
 	// it does not mutate the underlying array
 	test(myArray)
 	fmt.Println(myArray)
+
+	var myslice1 []int
+	fmt.Println(len(myslice1))
+	fmt.Println(cap(myslice1))
+	fmt.Println(myslice1)
+
+	myslice2 := []string{"Go", "Slices", "Are", "Powerful"}
+	fmt.Println(len(myslice2))
+	fmt.Println(cap(myslice2))
+	fmt.Println(myslice2)
+
+	fmt.Println(myslice1, myslice2)
+
+	sliceOfNames := []string{"Timothy", "Olisaeloka", "Timothy"}
+
+	for x := 0; x < 10; x++ {
+		sliceOfNames = append(sliceOfNames, "Timothy")
+		fmt.Println(sliceOfNames, len(sliceOfNames), cap(sliceOfNames))
+	}
+
+	fmt.Println(sliceOfNames)
+
+	dictionary := map[string]string{"name": "Timothy", "age": "200"}
+	dictionary["class"] = "level 200"
+	delete(dictionary, "age")
+	fmt.Println(dictionary)
+	value, ok := dictionary["class"]
+	fmt.Println(value, ok)
 }
 
 func test(array [3][2]int) {
