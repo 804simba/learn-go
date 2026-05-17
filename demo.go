@@ -1,8 +1,34 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
+
+type Person struct {
+	Name string
+	Age  int
+}
+
+func (p Person) CalculateDateOfBirth() string {
+	return time.Now().Format("2006-01-02")
+}
+
+type Shape interface {
+	Area() float64
+}
+
+type Rectangle struct {
+	Width, Height float64
+}
+
+func (r Rectangle) Area() float64 {
+	return r.Width * r.Height
+}
 
 func main() {
+	var areaOfTriangle Shape = Rectangle{Width: 10, Height: 5}
+	fmt.Println(areaOfTriangle.Area())
 	//fmt.Println("Hello World")
 	//var name = "Timothy"
 	//fmt.Println(name)
@@ -69,6 +95,10 @@ func main() {
 	concat1 := result("et")
 	concat2 := result("al")
 	fmt.Println(concat1, concat2)
+
+	person := Person{"Timothy", 20}
+	fmt.Println(person.Name)
+	fmt.Println(person.CalculateDateOfBirth())
 }
 
 func test(array [3][2]int) {
