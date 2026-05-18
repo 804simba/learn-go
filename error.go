@@ -31,6 +31,11 @@ func main() {
 
 	resultOfFloatAddition := addNumbers(10.5, 20.3)
 	fmt.Println("Result of float addition:", resultOfFloatAddition)
+
+	// Go automatically dereferences structs
+	book := Book{"things fall apart", "chinua achebe"}
+	book.SetTitle("Things Fall Apart")
+	fmt.Println("Book title:", book.title)
 }
 
 // Generics
@@ -52,4 +57,13 @@ func (s GenericSlice[T]) Len() int {
 type GenericStruct[T any, K any] struct {
 	key T
 	val K
+}
+
+type Book struct {
+	title  string
+	author string
+}
+
+func (b *Book) SetTitle(title string) {
+	b.title = title
 }
